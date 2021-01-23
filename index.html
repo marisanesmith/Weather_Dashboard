@@ -20,7 +20,7 @@
     <div class="container">
         <!--Row for searching a city-->
         <div class="row">
-            <div class="col-sm-4 bg-light">
+            <div class="col-sm-4 bg-light float-left">
                 <!--Here we create an HTML form for handling the inputs-->
                 <h4 class="pt-1"><strong>Search for a City:</strong></h4>
                 <!--Here we create the text box for capturing the search city Name-->
@@ -45,8 +45,50 @@
 
                 </div>
             </div>
+        </div>
+
+        <!-- Row for future data to be entered -->
+        <div class="col-sm-12" id="future-weather">
+            <h3> 5 Day Weather Forecast </h3>
+            <div class="row text-light">
+                <div class="col-sm-2 bg-info forecast text-white ml-2 mb-3 mt-2 rounded">
+                    <p id="fDate0"></p>
+                    <p id="fIng0"></p>
+                    <p>Temp:<span id="fTemp0"></span></p>
+                    <p>Humidity:<span id="fHumidity0"></span></p>
+                </div>
+                <div class="col-sm-2 bg-info forecast text-white ml-2 mb-3 mt-2 rounded">
+                    <p id="fDate1"></p>
+                    <p id="fIng1"></p>
+                    <p>Temp:<span id="fTemp1"></span></p>
+                    <p>Humidity:<span id="fHumidity1"></span></p>
+                </div>
+                <div class="col-sm-2 bg-info forecast text-white ml-2 mb-3 mt-2 rounded">
+                    <p id="fDate2"></p>
+                    <p id="fIng2"></p>
+                    <p>Temp:<span id="fTemp2"></span></p>
+                    <p>Humidity:<span id="fHumidity2"></span></p>
+                </div>
+                <div class="col-sm-2 bg-info forecast text-white ml-2 mb-3 mt-2 rounded">
+                    <p id="fDate3"></p>
+                    <p id="fIng3"></p>
+                    <p>Temp:<span id="fTemp3"></span></p>
+                    <p>Humidity:<span id="fHumidity3"></span></p>
+                </div>
+                <div class="col-sm-2 bg-info forecast text-white ml-2 mb-3 mt-2 rounded">
+                    <p id="fDate4"></p>
+                    <p id="fIng4"></p>
+                    <p>Temp:<span id="fTemp4"></span></p>
+                    <p>Humidity:<span id="fHumidity4"></span></p>
+                </div>
+                
+            </div> 
+        </div>
     </div>
    
+<!-- placeholder for searched data to appear-->
+
+
     <!--JavaScript at end of body for optimized loading-->
     <!-- <script src="https://kit.fontawesome.com/780f2a9447.js" crossorigin="anonymous"></script> -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
