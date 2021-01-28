@@ -27,40 +27,50 @@
         <!-- first row that has the search for a city function-->
     <div class="row">
         <!-- <div class="row"> -->
-            <form class="col s4">
+        <div class="col s12 m3">
+            <form>
                 <h2> Search for a City: </h2>
-                <div class="input-field col s4">
+                <div class="input-field col s6">
                     <textarea id="enterCity" class="materialize-textarea"></textarea>
                     <label for="textarea1">Enter a City</label>
                 </div>
             </form>
-        <!-- </div> -->
-        <div class="col s4">
-            <button id="startSearch" class="btn waves-effect waves-light" type="search" name="action">Search
-                <i class="material-icons right">search</i>
-            </button>
-            <button id="clearSearch" class="btn waves-effect waves-light" type="search" name="action">Clear Search
-                <i class="material-icons right">search</i>
-            </button>
+        <!-- <div class="col s4"> -->
+            <div class="row col s12">
+                <button id="startSearch" class="btn waves-effect waves-light" type="search" name="action">Search
+                    <i class="material-icons right">search</i>
+                </button>
+                <button id="clearSearch" class="btn waves-effect waves-light" type="search" name="action">Clear Search
+                    <i class="material-icons right">clear</i>
+                </button>
+                <div class="row">
+                    <table>
+                        <tbody id="listOfCities">
+                            <p>where cities searched will display after adding js</p>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
-        <!-- where the list of cities will be displayed after the search-->
-        <div class="col s4">
-            <table>
-                <tbody id="listOfCities">
-                    <p>where cities searched will display after adding js</p>
-                </tbody>
-            </table>
-        </div>
+            
+            <!-- where the list of cities will be displayed after the search-->
+        
         <!-- where the list of current weather data will be displayed-->
-        <div class="col s8" id="current-weather">
-            <ul class="collection with-header">
-                <li class="collection-header" id="current-city"><h4>Current City that will change</h4></li>
-                <li id="temperature"> Temperature: </li>
-                <li id="humidity"> Humidity: </li>
-                <li id="wind-speed"> Wind Speed: </li>
-                <li id="uv-index"> UV Index: </li>
-            </ul>
-        </div>
+        <!-- <div class="row"> -->
+            <div class="col s12 m6">
+                <div class="card blue-grey">
+                    <div class="card-content white-text">
+                        <span class="card-title center" id="current-city">Current City</span>
+                        <ul class="collection">
+                        <li id="temperature"> Temperature: </li>
+                        <li id="humidity"> Humidity: </li>
+                        <li id="wind-speed"> Wind Speed: </li>
+                        <li id="uv-index"> UV Index: </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        <!-- </div> -->
     </div>
     </div>
 
@@ -104,7 +114,7 @@
     </div>
 
 
-    <!--JavaScript at end of body for optimized loading-->
+    <!--JavaScript tags at the end of body-->
     <!-- <script src="https://kit.fontawesome.com/780f2a9447.js" crossorigin="anonymous"></script> -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="assets/materialize.js"></script>
