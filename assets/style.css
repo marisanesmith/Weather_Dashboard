@@ -9,11 +9,18 @@ h1 {
     font-family: 'Montserrat';
     text-align: center;
     justify-content: center;
-    background-color: grey;
     color: white;
     font-weight: 700;
     letter-spacing: 3px;
     text-transform: uppercase;
     padding: 20px;
     font-size: 40px;
+}
+
+.forecast-box {
+    border: solid 1px;
+}
+
+#current-weather {
+    float: right;
 }
