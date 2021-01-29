@@ -31,8 +31,8 @@
             <form>
                 <h2> Search for a City: </h2>
                 <div class="input-field col s6">
-                    <textarea id="enterCity" class="materialize-textarea"></textarea>
-                    <label for="textarea1">Enter a City</label>
+                    <input id="enterCity" type="text"></input>
+                    <label for="enterCity">Enter a City</label>
                 </div>
             </form>
         <!-- <div class="col s4"> -->
@@ -46,11 +46,7 @@
                 
                 <!-- where the list of cities will be displayed after the search-->
                 <div class="row">
-                    <table>
-                        <tbody id="list-cities">
-                            <ul>where cities searched will display after adding js</ul>
-                        </tbody>
-                    </table>
+                    <ul id="list-cities"></ul>
                 </div>
             </div>
         </div>

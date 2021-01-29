@@ -1,6 +1,7 @@
 var searchResults;
 //set up the API key
 var APIKey = "&appid=95c61d37a98e509e8766816d7fd6ec65";
+var searchedCities = [];
 
 // Display the current and future weather to the user after grabbing the city form from the input text box
 function displayWeather(event){
@@ -62,6 +63,8 @@ function fiveDayData() {
        var day = newDate.toDateString().slice(0,3);
        var dayString = "day" + i;
        $("#" + dayString).text(day);
+       var iconString = "icon" + i;
+       $("#" + iconString).attr("src", "http://openweathermap.org/img/w/" + searchResults.daily[i].weather[0].icon + ".png");
        var tempString = "temp" + i;
        $("#" + tempString).text(parseInt(searchResults.daily[i].temp.day));
        var humidString = "humid" + i;
@@ -69,25 +72,58 @@ function fiveDayData() {
    } 
 }
 
+function showCityList() {
+    $("#list-cities").empty();
+    for (i=0; i< searchedCities.length; i++) {
+        var newItem = $("<li>");
+        newItem.text(searchedCities[i]);
+        $("#list-cities").prepend(newItem);
+    }
+}
+
 $(document).ready(function() {
     $("#startSearch").on("click", function(){
         var cityInput = $("#enterCity").val();
+        searchedCities.push(cityInput);
+        console.log(searchedCities);
         //this will clear the search/text area 
         $("#enterCity").val("");
-
         currentWeather(cityInput);
         // makeRow(text);
         console.log(cityInput)
+        localStorage.setItem("cityList", JSON.stringify(searchedCities));
+
+        showCityList();
     });
-    $("#list-cities").on("click", "ul", function() {
-        currentWeather($(this.text()));
+
+    $("#list-cities").on("click", "li", function() {
+        currentWeather($(this).text());
         // make row function and for loop to pull through local storage
     });
-    
-    // function makeRow(text) {
-    //     var paraEl = $("<li>").addClass("make-list-cities").text(text);
-    //     $("#list-cities").append(paraEl);
-    // }
 
-})
+    $("#clearSearch").on("click", function() {
+        searchedCities = [];
+        $("#enterCity").val("");
+        localStorage.setItem("cityList", null)
+        showCityList();
+    });
+
+    $(document).on("submit", function(event) {
+        event.preventDefault();
+        currentWeather($("#enterCity").val());
+        var city = $("#enterCity").val();
+        console.log(city);
+        searchedCities.push(city);
+        console.log(searchedCities);
+        localStorage.setItem("cityList", JSON.stringify(searchedCities));
+        $("#enterCity").val("");
+        showCityList();
+    });
+
+        var tempArray = JSON.parse(localStorage.getItem("cityList"));
+        if (tempArray !== null) {
+            searchedCities = tempArray;
+            showCityList();
+        }
+});
 
