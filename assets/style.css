@@ -17,10 +17,14 @@ h1 {
     font-size: 40px;
 }
 
+h3 {
+    text-align: center;
+}
+
 .forecast-box {
     border: solid 1px;
 }
 
-#current-weather {
+#current-city-box {
     float: right;
 }

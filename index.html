@@ -4,16 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <title>Weather Dashboard</title>
     <!-- Materialize CSS-->
     <link rel="stylesheet" href="assets/materialize.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <!--Bootstrap CSS CDN-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous"> 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">  
-    <!-- Font Awesome CSS Icons (For cool glyphicons) -->
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"> -->
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">  -->
+    
     <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
@@ -23,11 +22,12 @@
             <h1> Weather Dashboard </h1>
         </div>
     </nav>
+
     <div class="container">
         <!-- first row that has the search for a city function-->
     <div class="row">
-        <!-- <div class="row"> -->
-        <div class="col s12 m3">
+        <div class="row">
+        <div class="col s6">
             <form>
                 <h2> Search for a City: </h2>
                 <div class="input-field col s6">
@@ -43,34 +43,35 @@
                 <button id="clearSearch" class="btn waves-effect waves-light" type="search" name="action">Clear Search
                     <i class="material-icons right">clear</i>
                 </button>
+                
+                <!-- where the list of cities will be displayed after the search-->
                 <div class="row">
                     <table>
-                        <tbody id="listOfCities">
-                            <p>where cities searched will display after adding js</p>
+                        <tbody id="list-cities">
+                            <ul>where cities searched will display after adding js</ul>
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
             
-            <!-- where the list of cities will be displayed after the search-->
         
         <!-- where the list of current weather data will be displayed-->
-        <!-- <div class="row"> -->
-            <div class="col s12 m6">
-                <div class="card blue-grey">
+        <div class="row">
+            <div class="col s6">
+                <div class="card blue-grey" id="current-city-box">
                     <div class="card-content white-text">
                         <span class="card-title center" id="current-city">Current City</span>
                         <ul class="collection">
-                        <li id="temperature"> Temperature: </li>
-                        <li id="humidity"> Humidity: </li>
-                        <li id="wind-speed"> Wind Speed: </li>
-                        <li id="uv-index"> UV Index: </li>
+                        <li> Temperature: <span id="temperature"></span></li>
+                        <li> Humidity: <span id="humidity"></span></li>
+                        <li> Wind Speed: <span id="wind-speed"></span></li>
+                        <li> UV Index: <span id="uv-index"></span></li>
                         </ul>
                     </div>
                 </div>
             </div>
-        <!-- </div> -->
+        </div>
     </div>
     </div>
 
@@ -80,34 +81,34 @@
             <h3>5 Day Weather Forecast</h3>
             <div class="row col s12 forecast-box">
                 <div class="col s2">
-                    <p id="day0"></p>
-                    <p id="icon0"></p>
-                    <p id="temp0">Temp: </p>
-                    <p id="humid0">Humidity: </p>
+                    <p><span id="day0"></span></p>
+                    <p><span id="icon0"></span></p>
+                    <p> Temp: <span id="temp0"></span></p>
+                    <p> Humidity: <span id="humid0"></span></p>
                 </div>
                 <div class="col s2">
-                    <p id="day1"></p>
-                    <p id="icon1"></p>
-                    <p id="temp1">Temp: </p>
-                    <p id="humid1">Humidity: </p>
+                    <p><span id="day1"></span></p>
+                    <p><span id="icon1"></span></p>
+                    <p> Temp: <span id="temp1"></span></p>
+                    <p> Humidity: <span id="humid1"></span></p>
                 </div>
                 <div class="col s2">
-                    <p id="day2"></p>
-                    <p id="icon2"></p>
-                    <p id="temp2">Temp: </p>
-                    <p id="humid2">Humidity: </p>
+                    <p><span id="day2"></span></p>
+                    <p><span id="icon2"></span></p>
+                    <p> Temp: <span id="temp2"></span></p>
+                    <p> Humidity: <span id="humid2"></span></p>
                 </div>
                 <div class="col s2">
-                    <p id="day3"></p>
-                    <p id="icon3"></p>
-                    <p id="temp3">Temp: </p>
-                    <p id="humid3">Humidity: </p>
+                    <p><span id="day3"></span></p>
+                    <p><span id="icon3"></span></p>
+                    <p> Temp: <span id="temp3"></span></p>
+                    <p> Humidity: <span id="humid3"></span></p>
                 </div>
                 <div class="col s2">
-                    <p id="day4"></p>
-                    <p id="icon4"></p>
-                    <p id="temp4">Temp: </p>
-                    <p id="humid4">Humidity: </p>
+                    <p><span id="day4"></span></p>
+                    <p><span id="icon4"></span></p>
+                    <p> Temp: <span id="temp4"></span></p>
+                    <p> Humidity: <span id="humid4"></span></p>
                 </div>
             </div>
         </div>
@@ -115,8 +116,6 @@
 
 
     <!--JavaScript tags at the end of body-->
-    <!-- <script src="https://kit.fontawesome.com/780f2a9447.js" crossorigin="anonymous"></script> -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="assets/materialize.js"></script>
     <script type="text/javascript" src="./assets/app.js"></script>
 </body>
