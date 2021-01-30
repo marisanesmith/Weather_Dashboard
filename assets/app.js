@@ -1,5 +1,7 @@
+// GLOBAL VARIABLES
+
 var searchResults;
-//set up the API key
+// Create a variable for the API key
 var APIKey = "&appid=95c61d37a98e509e8766816d7fd6ec65";
 var searchedCities = [];
 
@@ -12,9 +14,11 @@ function displayWeather(event){
     }
 }
 
+// Display the current weather by using the 5 Day forecast API
 function currentWeather(cityInput) {
     var currentWeathURL = "http://api.openweathermap.org/data/2.5/weather?units=imperial&q=" + cityInput + APIKey;
 
+// AJAX call to display the current weather into the text box
     $.ajax ({
         url: currentWeathURL,
         method: "GET"
@@ -28,6 +32,7 @@ function currentWeather(cityInput) {
     });
 };
 
+//AJAX call to display the UV index in the current weather text box by using lat and lon from the 5 day forecast API
 function getUVData(lat, lon) {
     $.ajax ({
         url: "https://api.openweathermap.org/data/2.5/onecall?units=imperial&lat=" + lat + "&lon=" + lon + APIKey,
@@ -36,27 +41,32 @@ function getUVData(lat, lon) {
         searchResults = response;
         var UV = $("#uv-index").text(response.daily[0].uvi);
         var UVInt = parseInt(response.daily[0].uvi);
-        UV.css("color", "black");
+        // Set the UV Index so that the colors change depending on the UV Index range
         if ((UVInt >= 0) && (UVInt <= 2)) {
             UV.css("background-color", "green")
+            UV.css("color", "white");
             }
             else if ((UVInt > 2) && (UVInt <= 5)) {
                 UV.css("background-color", "yellow")
+                UV.css("color", "black");
             }
             else if ((UVInt > 5) && (UVInt <= 7)) {
                 UV.css("background-color", "orange")
+                UV.css("color", "white");
             }
             else if ((UVInt > 7) && (UVInt <= 10)) {
                 UV.css("background-color", "red")
+                UV.css("color", "white");
             }
             else if (UVInt > 10) {
                 UV.css("background-color", "violet")
+                UV.css("color", "white");
             };
             console.log(response);
             fiveDayData();
     })  
 };
-
+// Function to display the 5 day forecast
 function fiveDayData() {
    for (i=0; i <=5; i ++) {
        var newDate = new Date(searchResults.daily[i].dt * 1000);
@@ -72,6 +82,7 @@ function fiveDayData() {
    } 
 }
 
+// Function to show the city list as a li item created using jQuery
 function showCityList() {
     $("#list-cities").empty();
     for (i=0; i< searchedCities.length; i++) {
@@ -82,26 +93,26 @@ function showCityList() {
     }
 }
 
+// Click event to populate the data for current weather and 5 day forecast after user enters a city
 $(document).ready(function() {
     $("#startSearch").on("click", function(){
         var cityInput = $("#enterCity").val();
         searchedCities.push(cityInput);
         console.log(searchedCities);
-        //this will clear the search/text area 
         $("#enterCity").val("");
         currentWeather(cityInput);
-        // makeRow(text);
         console.log(cityInput)
         localStorage.setItem("cityList", JSON.stringify(searchedCities));
 
         showCityList();
     });
 
+    //Click event to display the list of cities in the li tag that was created in JS
     $("#list-cities").on("click", "li", function() {
         currentWeather($(this).text());
-        // make row function and for loop to pull through local storage
     });
 
+    //click event to clear the list of cities that a user has already searched for
     $("#clearSearch").on("click", function() {
         searchedCities = [];
         $("#enterCity").val("");
@@ -109,6 +120,7 @@ $(document).ready(function() {
         showCityList();
     });
 
+    //click event for the submit button to display the city's current weather & 5 day forecast
     $(document).on("submit", function(event) {
         event.preventDefault();
         currentWeather($("#enterCity").val());
@@ -120,7 +132,8 @@ $(document).ready(function() {
         $("#enterCity").val("");
         showCityList();
     });
-
+    
+    // Save the entered cities to local storage
         var tempArray = JSON.parse(localStorage.getItem("cityList"));
         if (tempArray !== null) {
             searchedCities = tempArray;
