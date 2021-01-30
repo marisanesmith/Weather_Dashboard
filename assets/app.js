@@ -77,6 +77,7 @@ function showCityList() {
     for (i=0; i< searchedCities.length; i++) {
         var newItem = $("<li>");
         newItem.text(searchedCities[i]);
+        newItem.addClass("border-bottom");
         $("#list-cities").prepend(newItem);
     }
 }
