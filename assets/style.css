@@ -50,9 +50,13 @@ ul {
 };
 
 #startSearch {
-    margin-right: 5px:
+    margin-right: 5px;
 }
 
 .border-bottom {
     border-bottom: solid 1px #bca578; 
+}
+
+.s5ths {
+    width: 20%;
 }
