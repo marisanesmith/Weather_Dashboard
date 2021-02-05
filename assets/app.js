@@ -16,7 +16,7 @@ function displayWeather(event){
 
 // Display the current weather by using the 5 Day forecast API
 function currentWeather(cityInput) {
-    var currentWeathURL = "http://api.openweathermap.org/data/2.5/weather?units=imperial&q=" + cityInput + APIKey;
+    var currentWeathURL = "https://api.openweathermap.org/data/2.5/weather?units=imperial&q=" + cityInput + APIKey;
 
 // AJAX call to display the current weather into the text box
     $.ajax ({
@@ -27,7 +27,7 @@ function currentWeather(cityInput) {
         var temp = $("#temperature").text(parseInt(response.main.temp));
         var humid = $("#humidity").text(response.main.humidity);
         var windSpeed = $("#wind-speed").text(response.wind.speed);
-        var weatherIcon="http://openweathermap.org/img/wn/10d@2x.png";
+        var weatherIcon="https://openweathermap.org/img/wn/10d@2x.png";
         getUVData(response.coord.lat, response.coord.lon);
     });
 };
